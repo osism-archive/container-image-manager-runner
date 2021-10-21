@@ -1,5 +1,5 @@
 ---
-name: Build docker image
+name: Build container image
 
 "on":
   workflow_dispatch:
@@ -7,21 +7,21 @@ name: Build docker image
     - cron: "15 8-22 * * *"
   push:
     paths:
-      - .github/workflows/build-docker-image.yml
+      - .github/workflows/build-container-image.yml
       - Dockerfile
       - files/**
       - patches/**
       - scripts/**
   pull_request:
     paths:
-      - .github/workflows/build-docker-image.yml
+      - .github/workflows/build-container-image.yml
       - Dockerfile
       - files/**
       - patches/**
       - scripts/**
 
 jobs:
-  build-docker-image:
+  build-container-image:
     runs-on: ubuntu-latest
     strategy:
       matrix:
